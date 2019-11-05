@@ -1,0 +1,4 @@
+class QRScanner {
+  constructor() {
+  }
+}
