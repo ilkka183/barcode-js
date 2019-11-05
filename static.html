@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Barcode</title>
+  <link rel="stylesheet" href="static.css">
+</head>
+<body>
+
+<div>
+  <input id="file" type="file" accept="image/*" capture="camera"/>
+  <button id="rerun">Rerun</button>
+  <button id="clear">Clear</button>
+</div>
+
+<img id="image" class="image" src="" alt="">
+<div id="resultText" class="result"></div>
+
+<script src="./dist/quagga.js" type="text/javascript"></script>
+<script src="barcode.js" type="text/javascript"></script>
+<script src="static.js" type="text/javascript"></script>
+
+</body>
+</html>
