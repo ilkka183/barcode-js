@@ -1,11 +1,15 @@
 function decodeImage() {
+  barcode.type = typeSelect.value;
+  barcode.size = sizeSelect.value;
+  barcode.patchSize = patchSizeSelect.value;
+
   barcode.decodeSingle(image.src)
     .then(result => {
       console.log("result", result);
-      setResult(result.codeResult.code);
+      setResult(result.codeResult);
     })
     .catch(() => {
-      setResult('');
+      setResult(null);
     });
 }
 
@@ -25,15 +29,15 @@ function setImage(src) {
   decodeImage();
 }
 
-function setResult(code) {
-  console.log(code);
+function setResult(value) {
+  console.log(value);
 
-  if (code)
-    resultText.innerText = code;
+  if (value)
+    resultText.innerText = value.code + ' (' + value.format + ')';
   else
     resultText.innerText = 'Not detected';
 
-  if (code) {
+  if (value && value.code) {
     resultText.classList.add('detected');
     resultText.classList.remove('not-detected');
   } else {
@@ -43,6 +47,7 @@ function setResult(code) {
 }
 
 const barcode = new Barcode();
+barcode.type = 'code_39_reader';
 
 // File input
 const fileInput = document.getElementById('file');
@@ -67,6 +72,16 @@ clearButton.addEventListener('click', () => {
   setImage('');
   setResult('');
 });
+
+const typeSelect = document.getElementById('type');
+typeSelect.value = barcode.type;
+
+const sizeSelect = document.getElementById('size');
+sizeSelect.value = barcode.size;
+
+const patchSizeSelect = document.getElementById('patchSize');
+patchSizeSelect.value = barcode.patchSize;
+
 
 // Image
 const image = document.getElementById('image');

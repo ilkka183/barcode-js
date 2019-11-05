@@ -17,3 +17,13 @@ startButton.addEventListener('click', () => setLive(true));
 const stopButton = document.getElementById('stop');
 stopButton.disabled = !live;
 stopButton.addEventListener('click', () => setLive(false));
+
+const typeSelect = document.getElementById('type');
+typeSelect.value = barcode.type;
+
+const sizeSelect = document.getElementById('size');
+sizeSelect.value = barcode.size;
+
+const patchSizeSelect = document.getElementById('patchSize');
+patchSizeSelect.value = barcode.patchSize;
+

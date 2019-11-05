@@ -1,7 +1,11 @@
+td {
+  vertical-align: top;
+}
+
 .image {
   margin-top: 10px;
   padding: 10px;
-  border: 1px solid gray;
+  border: 1px solid silver;
 }
 
 .result {
