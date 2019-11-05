@@ -4,10 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="barcode.css">
   <title>Live barcode</title>
 </head>
 <body>
 
+<div>
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+</div>
+
+<img id="image" class="image" src="" alt="">
+<div id="resultText" class="result"></div>
+      
 <script src="./dist/quagga.js" type="text/javascript"></script>
 <script src="barcode.js" type="text/javascript"></script>
 <script src="live.js" type="text/javascript"></script>
