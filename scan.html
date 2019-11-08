@@ -10,16 +10,19 @@
 <body>
 
 <div class="buttons">
-  <button id="start">Start</button>
+  <button id="startQR">Start QR</button>
+  <button id="startBarcode">Start Barcode</button>
   <button id="stop">Stop</button>
 </div>
 <div id="scanner"></div>
 <div id="text" class="text"></div>
         
+<script type="text/javascript" src="./js/jsqrscanner.nocache.js"></script>
 <script type="text/javascript" src="./dist/quagga.js" ></script>
-<script type="text/javascript" src="../scanner.js" ></script>
-<script type="text/javascript" src="bar-scanner.js" ></script>
-<script type="text/javascript" src="bar-scan.js" ></script>
+<script type="text/javascript" src="scanner.js" ></script>
+<script type="text/javascript" src="qr-scanner.js" ></script>
+<script type="text/javascript" src="barcode-scanner.js" ></script>
+<script type="text/javascript" src="scan.js" ></script>
   
 </body>
 </html>

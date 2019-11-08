@@ -15,10 +15,19 @@ td {
   font-weight: bold;
 }
 
+.type {
+  font-size: 30px;
+  font-weight: bold;
+}
+
 .detected {
   color: green;
 }
 
 .not-detected {
   color: red;
+}
+
+#scanner canvas.drawingBuffer {
+  margin-left: -640px;
 }

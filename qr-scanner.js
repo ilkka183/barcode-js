@@ -1,20 +1,22 @@
 class QRScanner extends Scanner {
-  constructor(elementId) {
-    super(elementId);
+  constructor(reader) {
+    super(reader);
+    this.scanner = null;
+    this.ready = false;
   }
 
   get isActive() {
     return this.scanner && this.scanner.isActive();
   }
 
-  startScanning() {
+  start() {
     if (!this.scanner) {
       // Create a new scanner passing to it a callback function that will be invoked when
       // the scanner succesfully scan a QR code
       this.scanner = new JsQRScanner(
         (scannedText) => {
           if (scannedText)
-            this.codeScanned(scannedText);
+            this.reader.codeScanned(scannedText);
         },
         this.provideVideoQQ);
 
@@ -23,25 +25,24 @@ class QRScanner extends Scanner {
       this.scanner.resumeScanning();
     }
 
-    const element = document.getElementById(this.elementId);
+    const element = document.getElementById(this.reader.elementId);
 
     if (element) {
       this.scanner.appendTo(element);
     }
 
-    this.stateChanged();
+    this.reader.stateChanged();
   }
 
-  stopScanning() {
+  stop() {
     this.scanner.stopScanning();
 
-    const element = document.getElementById(this.elementId);
+    const element = document.getElementById(this.reader.elementId);
 
-    if (element) {
+    if (element)
       this.scanner.removeFrom(element);
-    }
 
-    this.stateChanged();
+    this.reader.stateChanged();
   }
 
   //funtion returning a promise with a video stream
@@ -72,5 +73,5 @@ class QRScanner extends Scanner {
           }
         });        
       });                
-  }  
+  }
 }
