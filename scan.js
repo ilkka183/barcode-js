@@ -10,7 +10,7 @@ const startQRButton = document.getElementById('startQR');
 startQRButton.addEventListener('click', () => {
   reader.scannerType = 'qr';
   reader.startScanning();
-  setText('');
+  setScannedText('');
 });
 
 const startBarcodeButton = document.getElementById('startBarcode');
@@ -18,7 +18,7 @@ const startBarcodeButton = document.getElementById('startBarcode');
 startBarcodeButton.addEventListener('click', () => {
   reader.scannerType = 'barcode';
   reader.startScanning();
-  setText('');
+  setScannedText('');
 });
 
 const stopButton = document.getElementById('stop');
@@ -33,20 +33,20 @@ function JsQRScannerReady()
   reader.qrScanner.ready = true;
 }
 
-function setText(text) {
-  const element = document.getElementById('text');
+function setScannedText(text) {
+  const element = document.getElementById('scannedText');
 
   if (element)
     element.innerText = text;
 }
 
 function codeScanned(scannedText) {
-  setText(scannedText);
+  setScannedText(scannedText);
   reader.stopScanning();
 }
 
 function errorRaised(errorText) {
-  setText(errorText);
+  setScannedText(errorText);
 }
 
 function stateChanged() {

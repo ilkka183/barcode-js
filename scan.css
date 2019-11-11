@@ -1,5 +1,7 @@
-td {
-  vertical-align: top;
+button {
+  padding: 10px;
+  margin-right: 5px;
+  border-radius: 5px;
 }
 
 .image {
@@ -8,11 +10,9 @@ td {
   border: 1px solid silver;
 }
 
-.text {
-  margin-top: 10px;
+.scanned-text {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 40px;
 }
 
 .type {
